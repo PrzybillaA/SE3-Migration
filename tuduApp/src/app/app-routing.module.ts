@@ -1,30 +1,32 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { LoginPageModule } from './pages/login/login.module';
+import { TodoBoardPageModule } from './pages/todo-board/todo-board.module';
+import { HilfePageModule } from './pages/hilfe/hilfe.module';
+import { EinstellungenPageModule } from './pages/einstellungen/einstellungen.module';
+
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  },  {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => LoginPageModule
   },
   {
     path: 'todo-board',
-    loadChildren: () => import('./pages/todo-board/todo-board.module').then( m => m.TodoBoardPageModule)
+    loadChildren: () => TodoBoardPageModule
   },
   {
     path: 'einstellungen',
-    loadChildren: () => import('./pages/einstellungen/einstellungen.module').then( m => m.EinstellungenPageModule)
+    loadChildren: () => HilfePageModule
   },
   {
     path: 'hilfe',
-    loadChildren: () => import('./pages/hilfe/hilfe.module').then( m => m.HilfePageModule)
+    loadChildren: () => EinstellungenPageModule
   }
 
 ];
