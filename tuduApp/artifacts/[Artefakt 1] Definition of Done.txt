@@ -1,0 +1,9 @@
+- Alle definierten Akzeptanzkriterien wurden erfüllt, es gibt keine offenen Tasks und das Feature ist voll funktionsfähig.
+- Es gibt Selektoren wie IDs, Klassen, etc..
+- Das Feature wurde durch ausreichend Unit Tests getestet und es gibt keine Fehlermeldungen.
+- TDD und CCD wurde angewendet.
+- Das Feature besitzt 100% Statement Coverage.
+- Anwendung ist lauffähig.
+- Commit-Name ist inkl. Name des Sprints und des BLIs.
+- Code Review durch einen weiteren Entwickler.
+- Feature wurde vom Scrum Master aus User-Sicht überprüft.
