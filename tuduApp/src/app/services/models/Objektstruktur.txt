@@ -1,0 +1,11 @@
+Todo-Objekt = {
+    id: number,
+    titel: string,
+    beschreibung: string,
+    erstellungsDatum: date,
+    faelligkeitsdatum: date,
+}
+
+Meilstein-Objekt = {
+    
+}
