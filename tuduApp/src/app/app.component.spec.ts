@@ -43,4 +43,8 @@ describe('AppComponent', () => {
     expect(menuItems[1].getAttribute('ng-reflect-router-link')).toEqual('/folder/Outbox');
   }));
 
+  it('should work',waitForAsync(()=>{
+    expect(1+1).toBe(2);
+  }))
+
 });
