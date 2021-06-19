@@ -13,7 +13,7 @@ export class DatenbankService {
 
     let keys = await Storage.keys;
 
-    for(let i = 0; i < keys.length ; i++){
+    for(let i = 0; i <= keys.length ; i++){
       await Storage.get({key: "" + i}).then(data => {
         if(data){
           // Existiert
@@ -31,7 +31,7 @@ export class DatenbankService {
         key: "" + todo.id,
         value: JSON.stringify(todo),
       }).then(() => {
-          resolve(true);
+          resolve(todo);
         }).catch(e => {
           reject(e);
         });
@@ -46,8 +46,13 @@ export class DatenbankService {
   }
 
   async removeTodo (id: number) {
-    await Storage.remove({ key: "" + id });
-  };
+    await Storage.remove({ key: "" + id }).then(()=>{
+      return true;
+    }).catch((e)=>{
+      return false;
+    });
+
+  }
 
   setPasswort(passwort: string): Promise<any>{
     return new Promise((resolve, reject) => {

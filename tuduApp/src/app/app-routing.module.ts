@@ -22,11 +22,11 @@ const routes: Routes = [
   },
   {
     path: 'einstellungen',
-    loadChildren: () => HilfePageModule
+    loadChildren: () => EinstellungenPageModule
   },
   {
     path: 'hilfe',
-    loadChildren: () => EinstellungenPageModule
+    loadChildren: () => HilfePageModule
   }
 
 ];

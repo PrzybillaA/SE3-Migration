@@ -8,6 +8,8 @@ export class Todo implements Deserialize {
     erstellungsDatum: Date;
     faelligkeitsdatum: Date;    
 
+    
+
     deserialize(input: any) {
         Object.assign(this, input);
 
