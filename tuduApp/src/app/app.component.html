@@ -1,5 +1,5 @@
 <ion-app>
-  <ion-menu side="start" menuId="first">
+  <ion-menu side="start" menuId="first" swipeGesture="false">
     <ion-header>
       <ion-toolbar color="primary">
         <ion-title>Menü</ion-title>
@@ -7,7 +7,6 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item routerLink="/login"   routerDirection="forward" (click)="menuSchliessen()" >Login</ion-item>
         <ion-item routerLink="/todo-board" routerDirection="forward" (click)="menuSchliessen()" >Todo-Board</ion-item>
         <ion-item routerLink="/hilfe" routerDirection="forward" (click)="menuSchliessen()" >Hilfe</ion-item>
         <ion-item routerLink="/einstellungen" routerDirection="forward" (click)="menuSchliessen()" >Einstellungen</ion-item>
