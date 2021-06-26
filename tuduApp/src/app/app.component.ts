@@ -10,7 +10,6 @@ export class AppComponent {
   constructor(private menuController: MenuController) {}
 
   menuSchliessen() {
-
-    this.menuController.close();
+     return this.menuController.close();
   }
 }
