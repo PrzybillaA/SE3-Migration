@@ -21,7 +21,7 @@ export class LoginPage implements OnInit {
   }
 
   async login(){
-    if (this.db.checkPasswort(this.passwortLogin)){
+    if (await this.db.checkPasswort(this.passwortLogin)){
     return this.router.navigate(['/todo-board']);  
     } else{
     const toast = await this.toastCtrl.create({

@@ -34,8 +34,6 @@ export class TodoComponent implements OnInit {
       text: "Abberechen",
       role: "Cancel",
       handler: () => {
-        
-
         slider.close();
       }
     };

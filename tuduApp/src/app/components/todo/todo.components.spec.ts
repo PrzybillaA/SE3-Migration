@@ -21,4 +21,8 @@ describe('TodoComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Method: loeschen()', () => {
+    expect(component.loeschen(null)).toBeTruthy();
+  });
 });
