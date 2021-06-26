@@ -97,6 +97,66 @@ describe('DatenbankService', () => {
   });
 
   /**
+   * Unit-Tests für die Methode login()
+   */
+  it("Method:login()", (done) => {
+    service.login().then((resultLogin) => {
+      service.isLoggedIn().then(resultLoggedIn => {
+        expect(resultLogin).toBeTrue();
+        expect(resultLoggedIn).toBeTrue();
+        done();
+      });
+    });
+  });
+
+  /**
+   * Unit-Tests für die Methode logout()
+   */
+  it("Method:logout()", (done) => {
+    service.logout().then(resultLogout => {
+      service.isLoggedIn().then(resultLoggedIn => {
+        expect(resultLogout).toBeTrue();
+        expect(resultLoggedIn).toBeFalse();
+        done();
+      });
+    });
+  });
+
+  /**
+   * Unit-Tests für die Methode isLoggedIn()
+   */
+  it("Method:isLoggedIn()", (done) => {
+    service.login().then(() => {
+      service.isLoggedIn().then(resultLogin => {
+        service.logout().then(() => {
+          service.isLoggedIn().then(resultLogout => {
+            expect(resultLogin).toBeTrue();
+            expect(resultLogout).toBeFalse();
+            done();
+          });
+        });
+      });
+    });
+  });
+
+  /**
+   * Unit-Tests für die Methode isRegistered
+   */
+  it("Method:isRegistered()", (done) => {
+    service.setPasswort(password).then(() => {
+      service.isRegistered().then(resultTrue => {
+        service.removePasswort().then(() => {
+          service.isRegistered().then(resultFalse => {
+            expect(resultTrue).toBeTrue();
+            expect(resultFalse).toBeFalse();
+            done();
+          });
+        });
+      });
+    });
+  });
+
+  /**
    * Unit-Tests für die Methode removePasswort()
    */
   it("Method:removePasswort", (done) => {
