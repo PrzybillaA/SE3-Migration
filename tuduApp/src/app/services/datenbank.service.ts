@@ -6,8 +6,59 @@ import { Storage } from '@capacitor/storage';
   providedIn: 'root'
 })
 export class DatenbankService {
+  
+  testdaten = [
+    new Todo().deserialize({
+      titel: "Haus putzen",
+      beschreibung: "Du solltest echt das Haus in der nächsten Zeit putzen. 1 mal pro Jahr reicht nicht...",
+      erstellungsDatum: new Date(),
+      faelligkeitsdatum: new Date(2021, 11, 24, 10, 33, 30, 0)
+    }),
+    new Todo().deserialize({
+      titel: "Zähne putzen",
+      beschreibung: "Zähne putzen!",
+      erstellungsDatum: new Date(),
+      faelligkeitsdatum: new Date(2022, 11, 24, 10, 33, 30, 0)
+    }),
+    new Todo().deserialize({
+      titel: "Gassi gehen",
+      beschreibung: "Geh mit Hund 3 mal am Tag Gassi.",
+      erstellungsDatum: new Date(),
+      faelligkeitsdatum: new Date(2032, 11, 24, 10, 33, 30, 0)
+    }),
+    new Todo().deserialize({
+      titel: "Cash verdienen",
+      beschreibung: "Arbeiten!",
+      erstellungsDatum: new Date(),
+      faelligkeitsdatum: new Date(2040, 11, 24, 10, 33, 30, 0)
+    }),
+    new Todo().deserialize({
+      titel: "Neues Haus kaufen",
+      beschreibung: "Man kann ja hoffen, dass man sich das irgendwann leisten kann",
+      erstellungsDatum: new Date(),
+      faelligkeitsdatum: new Date(2050, 11, 24, 10, 33, 30, 0)
+    }),
+    new Todo().deserialize({
+      titel: "Neues Haus verkaufen",
+      beschreibung: "Das neue Haus wird wahrscheinlich doch zu teuer sein, also verkaufe es lieber wieder",
+      erstellungsDatum: new Date(),
+      faelligkeitsdatum: new Date(2018, 11, 24, 10, 33, 30, 0)
+    })
+  ];
 
-  constructor() { }
+  constructor() {
+    this.getAlleTodos().then(todos => {
+      if(todos.length = 0){
+        this.testdatenBefuellen();
+      }
+    });
+  }
+
+  async testdatenBefuellen(){
+    for(let item in this.testdaten){
+      await this.setTodo(this.testdaten[item]);
+    }
+  }
 
   readonly passwortEintrag = "passwort";
   readonly loginEintrag = "loggedIn";
