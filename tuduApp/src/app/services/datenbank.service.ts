@@ -48,7 +48,7 @@ export class DatenbankService {
 
   constructor() {
     this.getAlleTodos().then(todos => {
-      if(todos.length = 0){
+      if(todos.length <= 0){
         this.testdatenBefuellen();
       }
     });
