@@ -1,0 +1,14 @@
+ion-card{
+    position: relative;
+    width: 75vw;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 5vw;
+
+    --background: lightgray;
+}
+
+ion-item{
+    color: red;
+    --background: lightgray;
+}
