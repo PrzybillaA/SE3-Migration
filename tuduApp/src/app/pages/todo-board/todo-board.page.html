@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" translucent>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -6,3 +6,18 @@
     <ion-title>Todo-Board</ion-title>
   </ion-toolbar>
 </ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Level: 1 Points:0</ion-label>
+  </ion-item>
+  <ion-list>
+    <app-todo *ngFor="let todo of todos" [todo]="todo"></app-todo>
+
+    <span id="newTodo"></span>
+
+    <ion-item class="todoHinzufuegen">
+      <ion-button (click)="createTodo()">+</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

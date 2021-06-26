@@ -32,11 +32,6 @@ describe('LoginPage', () => {
     expect(component).toBeTruthy();
   });
 
-  /*it('loginButton to todo-board page', waitForAsync(() => {
-    it('should navigate', inject([Router], (router: Router) => {
-      expect(router.navigate).toHaveBeenCalledWith(['/todo-board']);
-    }))}));*/
-
   it('method: login()', () => {
     const fixture = TestBed.createComponent(LoginPage);
     let component = fixture.componentInstance;

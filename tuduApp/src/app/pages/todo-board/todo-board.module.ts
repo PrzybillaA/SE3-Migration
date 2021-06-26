@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { TodoBoardPageRoutingModule } from './todo-board-routing.module';
 
 import { TodoBoardPage } from './todo-board.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TodoBoardPageRoutingModule
+    TodoBoardPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [TodoBoardPage]
 })

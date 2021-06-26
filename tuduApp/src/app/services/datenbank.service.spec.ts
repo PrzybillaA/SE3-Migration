@@ -22,6 +22,13 @@ describe('DatenbankService', () => {
   });
 
   /**
+   * Unit-Tests für die Methode testdatenBefuellen()
+   */
+   it('method:testdatenBefuellen', (done) => {
+    expect(service.testdatenBefuellen()).toBeTruthy();
+  });
+
+  /**
    * Unit-Tests für die Methode getAlleTodos()
    */
   it('method:getAlleTodos', (done) => {

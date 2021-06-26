@@ -6,8 +6,59 @@ import { Storage } from '@capacitor/storage';
   providedIn: 'root'
 })
 export class DatenbankService {
+  
+  testdaten = [
+    new Todo().deserialize({
+      titel: "Haus putzen",
+      beschreibung: "Du solltest echt das Haus in der nächsten Zeit putzen. 1 mal pro Jahr reicht nicht...",
+      erstellungsDatum: new Date(),
+      faelligkeitsdatum: new Date(2021, 11, 24, 10, 33, 30, 0)
+    }),
+    new Todo().deserialize({
+      titel: "Zähne putzen",
+      beschreibung: "Zähne putzen!",
+      erstellungsDatum: new Date(),
+      faelligkeitsdatum: new Date(2022, 11, 24, 10, 33, 30, 0)
+    }),
+    new Todo().deserialize({
+      titel: "Gassi gehen",
+      beschreibung: "Geh mit Hund 3 mal am Tag Gassi.",
+      erstellungsDatum: new Date(),
+      faelligkeitsdatum: new Date(2032, 11, 24, 10, 33, 30, 0)
+    }),
+    new Todo().deserialize({
+      titel: "Cash verdienen",
+      beschreibung: "Arbeiten!",
+      erstellungsDatum: new Date(),
+      faelligkeitsdatum: new Date(2040, 11, 24, 10, 33, 30, 0)
+    }),
+    new Todo().deserialize({
+      titel: "Neues Haus kaufen",
+      beschreibung: "Man kann ja hoffen, dass man sich das irgendwann leisten kann",
+      erstellungsDatum: new Date(),
+      faelligkeitsdatum: new Date(2050, 11, 24, 10, 33, 30, 0)
+    }),
+    new Todo().deserialize({
+      titel: "Neues Haus verkaufen",
+      beschreibung: "Das neue Haus wird wahrscheinlich doch zu teuer sein, also verkaufe es lieber wieder",
+      erstellungsDatum: new Date(),
+      faelligkeitsdatum: new Date(2018, 11, 24, 10, 33, 30, 0)
+    })
+  ];
 
-  constructor() { }
+  constructor() {
+    this.getAlleTodos().then(todos => {
+      if(todos.length = 0){
+        this.testdatenBefuellen();
+      }
+    });
+  }
+
+  async testdatenBefuellen(){
+    for(let item in this.testdaten){
+      await this.setTodo(this.testdaten[item]);
+    }
+  }
 
   readonly passwortEintrag = "passwort";
   readonly loginEintrag = "loggedIn";
@@ -20,9 +71,7 @@ export class DatenbankService {
         } else {
           todo.id = i;
         }
-      }).catch(e => {
-        return e;
-      });
+      })
       if (todo.id) {
         break;
       }
@@ -34,9 +83,7 @@ export class DatenbankService {
         value: JSON.stringify(todo),
       }).then(() => {
         resolve(todo);
-      }).catch(e => {
-        reject(e);
-      });
+      })
     });
 
   }
@@ -67,10 +114,7 @@ export class DatenbankService {
     }
 
     return new Promise((resolve, reject) => {
-      if (returnArr)
         resolve(returnArr);
-      else
-        reject([]);
     });
   }
 
@@ -78,9 +122,7 @@ export class DatenbankService {
     return new Promise((resolve, reject) => {
       Storage.remove({ key: "" + id }).then(() => {
         resolve(true);
-      }).catch((e) => {
-        reject(false);
-      });
+      })
     });
   }
 
@@ -104,9 +146,7 @@ export class DatenbankService {
       })
         .then(() => {
           resolve(true);
-        }).catch(e => {
-          reject(e);
-        });
+        })
     });
   }
 
@@ -120,9 +160,8 @@ export class DatenbankService {
         } else {
           resolve(false);
         }
-      }).catch(e => {
-        reject(e);
-      }));
+      })
+      );
   }
 
   login(){
@@ -132,9 +171,7 @@ export class DatenbankService {
         value: "true",
       }).then(() => {
         resolve(true);
-      }).catch(e => {
-        reject(e);
-      });
+      })
     });
   }
 
@@ -145,9 +182,7 @@ export class DatenbankService {
         value: "false",
       }).then(() => {
         resolve(true);
-      }).catch(e => {
-        reject(e);
-      });
+      })
     });
   }
 
@@ -156,9 +191,7 @@ export class DatenbankService {
       Storage.get({ key: this.loginEintrag })
       .then(data => {
         resolve(data.value == "true");
-      }).catch(e => {
-        reject(e);
-      });
+      })
     });
   }
 
@@ -169,9 +202,7 @@ export class DatenbankService {
         if(data.value != undefined || data.value != null)
           resolve(true);
         resolve(false);
-      }).catch(e => {
-        resolve(false);
-      });
+      })
     });
   }
 
@@ -179,22 +210,38 @@ export class DatenbankService {
     return new Promise((resolve, reject) => {
       Storage.remove({ key: this.passwortEintrag }).then(() => {
         resolve(true);
-      }).catch((e) => {
-        reject(false);
-      });
+      })
     });
   };
 
+  /**
+   * 
+   * @returns the level that is stored in the database
+   */
   async getLevel(){
     return parseInt(await (await Storage.get({key:"level"})).value);
   }
+  /**
+   * 
+   * @returns the points that is stored in the current database
+   */
   async getPoints(){
     return parseInt(await (await Storage.get({key:"points"})).value); 
   }
+  /**
+   * 
+   * @param newLevel sets the level in the database to this value
+   * @returns the newValue in the database
+   */
   async setLevel(newLevel:number){
     await Storage.set({key:"level",value:newLevel+""});
     return this.getLevel();
   }
+  /**
+   * 
+   * @param newPoints sets the points int the database to this value
+   * @returns the newValue in the database
+   */
   async setPoints(newPoints:number){
     await Storage.set({key:"points",value:newPoints+""});
     return this.getPoints();

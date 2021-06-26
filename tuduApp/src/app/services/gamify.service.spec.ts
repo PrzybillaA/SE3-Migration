@@ -36,4 +36,7 @@ describe('GamifyService', () => {
     expect(service.getLevel()).toEqual(2);
 
   })
+  it('Method: saveToDatabase',()=>{
+    expect(service.saveToDatabase()).toBeTrue();
+  })
 });
