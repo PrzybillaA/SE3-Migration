@@ -16,7 +16,8 @@ Anschließend kannst du folgende Befehle ausführen:
 
 Da die App grundsätzlich für den Gebrauch auf dem Smartphone entwickelt wurde. Aus diesem Grund drücke F12 und ändere die Sicht zu einem Smartphone.
 
-![Smartphone auswählen im Browser](https://ibb.co/0BRJSYQ)
+
+![Smartphone auswählen im Browser](https://i.ibb.co/WD4KwBs/Smartphone-Ausw-hlen.png)
 
 ## Benutzerguide:
 Wenn du die App das erste Mal gestartet hast und Untersützung bei der Bedienung brauchst dann schau dir hier diesen Guide an.
