@@ -12,12 +12,24 @@ git clone https://github.com/PrzybillaA/SE3-Migration.git
 ```
 Anschließend kannst du folgende Befehle ausführen:
 
-`install npm -> ionic serve`
+```
+npm install
+```
+und
+```
+ionic serve
+```
 
 Da die App grundsätzlich für den Gebrauch auf dem Smartphone entwickelt wurde. Aus diesem Grund drücke F12 und ändere die Sicht zu einem Smartphone.
 
 
 ![Smartphone auswählen im Browser](https://i.ibb.co/WD4KwBs/Smartphone-Ausw-hlen.png)
+
+Über den folgenden Befehl kannst du dir auch eine APK-Datei erstellen lassen und die App auf dein Smartphone ziehen und starten:
+
+```
+ionic build
+```
 
 ## Benutzerguide:
 Wenn du die App das erste Mal gestartet hast und Untersützung bei der Bedienung brauchst dann schau dir diesen Guide hier an.
