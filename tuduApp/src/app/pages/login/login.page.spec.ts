@@ -65,9 +65,12 @@ describe('LoginPage', () => {
         done();
       })
     })
-
-  
-
   });
 
+  it('method: showPasswortSetzen()', (done) => {
+    const fixture = TestBed.createComponent(LoginPage);
+    let component = fixture.componentInstance;
+    expect(component.showPasswortSetzen()).toBeTrue();
+    done();
+  });
 });
