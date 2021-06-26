@@ -36,6 +36,12 @@ describe('AppComponent', () => {
 
   }));
 
-  
+  it('method: menuSchliessen()', waitForAsync(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    let component = fixture.componentInstance;
+    component.menuSchliessen().then(result => {
+      expect(result).toBeFalse();
+    })
+  }));
 
 });

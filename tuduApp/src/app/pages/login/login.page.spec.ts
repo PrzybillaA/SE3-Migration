@@ -4,12 +4,14 @@ import { IonicModule } from '@ionic/angular';
 import { LoginPage } from './login.page';
 import { Router } from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
+import { DatenbankService } from '../../services/datenbank.service';
 
 
 
 describe('LoginPage', () => {
   let component: LoginPage;
   let fixture: ComponentFixture<LoginPage>;
+  let db: DatenbankService;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -22,6 +24,10 @@ describe('LoginPage', () => {
     fixture.detectChanges();
   }));
 
+  beforeEach(() => {
+    db = new DatenbankService();
+  })
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
@@ -30,5 +36,19 @@ describe('LoginPage', () => {
     it('should navigate', inject([Router], (router: Router) => {
       expect(router.navigate).toHaveBeenCalledWith(['/todo-board']);
     }))}));*/
+
+  it('method: login()', () => {
+    const fixture = TestBed.createComponent(LoginPage);
+    let component = fixture.componentInstance;
+    component.login().then(result => {
+      db.loggedIn().then (loggedIn => {
+        if(loggedIn){
+          expect(result).toBeTrue();
+        } else {
+          expect(result).toBeFalse();
+        }
+      })
+    })
+  });
 
 });

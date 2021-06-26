@@ -14,5 +14,6 @@ export class LoginPage implements OnInit {
   }
 
   login(){
-    this.router.navigate(['/todo-board']);  }
+    return this.router.navigate(['/todo-board']);  
+  }
 }

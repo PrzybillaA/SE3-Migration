@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Todo } from './models/todo';
 import { Storage } from '@capacitor/storage';
+import { SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS } from 'constants';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class DatenbankService {
   constructor() { }
 
   readonly passwortEintrag = "passwort";
+  readonly loginEintrag = "loggedIn";
 
   async setTodo(todo: Todo): Promise<any> {
     for (let i = 0; true; i++) {
@@ -113,6 +115,7 @@ export class DatenbankService {
       Storage.get({ key: this.passwortEintrag })
       .then(data => {
         if (data.value === passwort) {
+          this.login();
           resolve(true);
         } else {
           resolve(false);
@@ -120,6 +123,56 @@ export class DatenbankService {
       }).catch(e => {
         reject(e);
       }));
+  }
+
+  login(){
+    return new Promise((resolve, reject) => {
+      Storage.set({
+        key: this.loginEintrag,
+        value: "true",
+      }).then(() => {
+        resolve(true);
+      }).catch(e => {
+        reject(e);
+      });
+    });
+  }
+
+  logout(){
+    return new Promise((resolve, reject) => {
+      Storage.set({
+        key: this.loginEintrag,
+        value: "false",
+      }).then(() => {
+        resolve(true);
+      }).catch(e => {
+        reject(e);
+      });
+    });
+  }
+
+  isLoggedIn(){
+    return new Promise((resolve, reject) => {
+      Storage.get({ key: this.loginEintrag })
+      .then(data => {
+        resolve(data.value == "true");
+      }).catch(e => {
+        reject(e);
+      });
+    });
+  }
+
+  isRegistered(){
+    return new Promise((resolve) => {
+      Storage.get({ key: this.passwortEintrag })
+      .then(data => {
+        if(data.value != undefined || data.value != null)
+          resolve(true);
+        resolve(false);
+      }).catch(e => {
+        resolve(false);
+      });
+    });
   }
 
   async removePasswort() {
