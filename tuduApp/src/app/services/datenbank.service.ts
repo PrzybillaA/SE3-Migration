@@ -131,4 +131,19 @@ export class DatenbankService {
       });
     });
   };
+
+  async getLevel(){
+    return parseInt(await (await Storage.get({key:"level"})).value);
+  }
+  async getPoints(){
+    return parseInt(await (await Storage.get({key:"points"})).value); 
+  }
+  async setLevel(newLevel:number){
+    await Storage.set({key:"level",value:newLevel+""});
+    return this.getLevel();
+  }
+  async setPoints(newPoints:number){
+    await Storage.set({key:"points",value:newPoints+""});
+    return this.getPoints();
+  }
 }

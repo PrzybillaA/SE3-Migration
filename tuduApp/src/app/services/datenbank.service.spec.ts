@@ -120,5 +120,19 @@ describe('DatenbankService', () => {
       })
     })
   });
+  
+  it("Method:setLevel",(done)=>{
+    service.setLevel(4).then((result)=>{
+      expect(result).toEqual(4);
+      done();
+    })
+  })
+
+  it("Method:setPoints",(done)=>{
+    service.setPoints(4).then((result)=>{
+      expect(result).toEqual(4);
+      done();
+  })
+  })
 });
 
