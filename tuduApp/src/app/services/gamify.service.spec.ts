@@ -23,4 +23,5 @@ describe('GamifyService', () => {
     service.setLevel(10);
     expect(service.getLevel()).toEqual(10);
   })
+  
 });
