@@ -1,11 +1,12 @@
-#loginContainer{
+#loginContainer, #passwortContainer {
     background-color: rgb(233, 231, 231);
     width: 80%;
     margin-left: 10%;
     margin-top: 30%;
-    font-size: 1em;
+    font-size: 40%;
     border-radius: 2vw;
     padding: 5%;
+    color: #595959;
 }
 #loginButton{
 float: right;
@@ -15,31 +16,47 @@ margin-top: 5%;
 }
 
 #loginText{
-    font-size: 2em;
+    font-size: 3em;
     font-family: Epilogue;
     font-weight: bold;
-
 }
-
 
 #titelContainer{
     margin-top: 20%;
     margin-left: 10%;
-    font-size: 2em;
     font-family: Nunito;
-
 }
 
 #titelh1 {
     color: #e06666ff;
-    font-size: 1.5em;
-
+    font-size: 2.5em
 }
-
 
 #titelh2 {
     color: #9cbdc2;
-    font-size: 0.6em;
     margin-top: -5%;
-
+    font-size: 1.4 em;
 }
+
+#passwortButton{
+float: right;
+--background:  #e06666ff;
+margin-right: 10%;
+margin-top: 5%;
+}
+
+#passwortText{
+    font-size: 3em;
+    font-family: Epilogue;
+    font-weight: bold;
+}
+
+#passwortInput1, #passwortInput2, #loginInput{
+    color: #c4c4c4;
+    background-color: #c4c4c4;
+    margin-top: 1em; 
+    color: #6e6e6e;
+    font-size: 2em;
+    padding-left: 1em;
+}
+

@@ -51,4 +51,23 @@ describe('LoginPage', () => {
     })
   });
 
+
+  it('method: passwortSetzen()', (done) => {
+    const fixture = TestBed.createComponent(LoginPage);
+    let component = fixture.componentInstance;
+    component.passwort = "hund";
+    component.passwortWiederholen = "hund";
+    component.passwortSetzen().then(result => {
+      expect(result).toBeTrue();
+      component.passwortWiederholen = "hase";
+      component.passwortSetzen().then(result => {
+        expect(result).toBeFalse();
+        done();
+      })
+    })
+
+  
+
+  });
+
 });
