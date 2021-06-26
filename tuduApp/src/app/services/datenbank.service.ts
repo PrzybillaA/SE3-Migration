@@ -163,16 +163,34 @@ export class DatenbankService {
     });
   };
 
+  /**
+   * 
+   * @returns the level that is stored in the database
+   */
   async getLevel(){
     return parseInt(await (await Storage.get({key:"level"})).value);
   }
+  /**
+   * 
+   * @returns the points that is stored in the current database
+   */
   async getPoints(){
     return parseInt(await (await Storage.get({key:"points"})).value); 
   }
+  /**
+   * 
+   * @param newLevel sets the level in the database to this value
+   * @returns the newValue in the database
+   */
   async setLevel(newLevel:number){
     await Storage.set({key:"level",value:newLevel+""});
     return this.getLevel();
   }
+  /**
+   * 
+   * @param newPoints sets the points int the database to this value
+   * @returns the newValue in the database
+   */
   async setPoints(newPoints:number){
     await Storage.set({key:"points",value:newPoints+""});
     return this.getPoints();
