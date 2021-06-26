@@ -20,9 +20,7 @@ export class DatenbankService {
         } else {
           todo.id = i;
         }
-      }).catch(e => {
-        return e;
-      });
+      })
       if (todo.id) {
         break;
       }
@@ -34,9 +32,7 @@ export class DatenbankService {
         value: JSON.stringify(todo),
       }).then(() => {
         resolve(todo);
-      }).catch(e => {
-        reject(e);
-      });
+      })
     });
 
   }
@@ -67,10 +63,7 @@ export class DatenbankService {
     }
 
     return new Promise((resolve, reject) => {
-      if (returnArr)
         resolve(returnArr);
-      else
-        reject([]);
     });
   }
 
@@ -78,9 +71,7 @@ export class DatenbankService {
     return new Promise((resolve, reject) => {
       Storage.remove({ key: "" + id }).then(() => {
         resolve(true);
-      }).catch((e) => {
-        reject(false);
-      });
+      })
     });
   }
 
@@ -104,9 +95,7 @@ export class DatenbankService {
       })
         .then(() => {
           resolve(true);
-        }).catch(e => {
-          reject(e);
-        });
+        })
     });
   }
 
@@ -120,9 +109,8 @@ export class DatenbankService {
         } else {
           resolve(false);
         }
-      }).catch(e => {
-        reject(e);
-      }));
+      })
+      );
   }
 
   login(){
@@ -132,9 +120,7 @@ export class DatenbankService {
         value: "true",
       }).then(() => {
         resolve(true);
-      }).catch(e => {
-        reject(e);
-      });
+      })
     });
   }
 
@@ -145,9 +131,7 @@ export class DatenbankService {
         value: "false",
       }).then(() => {
         resolve(true);
-      }).catch(e => {
-        reject(e);
-      });
+      })
     });
   }
 
@@ -156,9 +140,7 @@ export class DatenbankService {
       Storage.get({ key: this.loginEintrag })
       .then(data => {
         resolve(data.value == "true");
-      }).catch(e => {
-        reject(e);
-      });
+      })
     });
   }
 
@@ -169,9 +151,7 @@ export class DatenbankService {
         if(data.value != undefined || data.value != null)
           resolve(true);
         resolve(false);
-      }).catch(e => {
-        resolve(false);
-      });
+      })
     });
   }
 
@@ -179,9 +159,7 @@ export class DatenbankService {
     return new Promise((resolve, reject) => {
       Storage.remove({ key: this.passwortEintrag }).then(() => {
         resolve(true);
-      }).catch((e) => {
-        reject(false);
-      });
+      })
     });
   };
 
