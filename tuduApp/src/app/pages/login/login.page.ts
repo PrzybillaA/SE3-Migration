@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DatenbankService } from 'src/app/services/datenbank.service';
-import { AlertController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -10,37 +10,44 @@ import { AlertController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
   passwort: string;
+  passwortLogin: string;
   passwortWiederholen: string;
 
 
-  constructor(private router: Router, private db: DatenbankService, private alertCtrl: AlertController) { }
+  constructor(private router: Router, private db: DatenbankService, private toastCtrl: ToastController) { }
 
   ngOnInit() {
   this.showPasswortSetzen();
   }
 
-  login(){
-    return this.router.navigate(['/<todo-board']);  
+  async login(){
+    if (this.db.checkPasswort(this.passwortLogin)){
+    return this.router.navigate(['/todo-board']);  
+    } else{
+    const toast = await this.toastCtrl.create({
+      message: "Passwort falsch!",
+      duration: 2000
+      });
+      await toast.present();
   }
-
+  }
 
 async passwortSetzen(){
-  if (this.passwort.localeCompare(this.passwortWiederholen)){
-    this.db.setPasswort
+if (this.passwort == this.passwortWiederholen && this.passwort != undefined ){
+    this.db.setPasswort(this.passwort)
     return this.router.navigate(['/todo-board']);
   }else{
-    const meinAlert = await this.alertCtrl.create({
-      header: "hi",
-      message: "ho",
+    const toast = await this.toastCtrl.create({
+      message: "Passwörter stimmen nicht überein!",
+      duration: 2000
       });
-      
-      await meinAlert.present();
+      await toast.present();
   }
   
-  this.router.navigate(['/todo-board']);  }
+   }
 
-showPasswortSetzen(){
-  if (false){ //Ändern zu erster Zeit des Aufrufs
+async showPasswortSetzen(){
+  if (await this.db.isRegistered()){ 
     document.getElementById("passwortContainer").style.display= "none";
     document.getElementById("passwortButton").style.display= "none";
     document.getElementById("loginContainer").style.display= "";
@@ -51,8 +58,9 @@ showPasswortSetzen(){
     document.getElementById("loginContainer").style.display= "none";
     document.getElementById("loginButton").style.display= "none";
   }
-  
-  ;  }
+  return true;
+  }
 
 }
+
 

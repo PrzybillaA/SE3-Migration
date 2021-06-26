@@ -9,7 +9,7 @@
 
   <div id="loginContainer">
   <ion-label id ="loginText" position="stacked">Login</ion-label>
-  <ion-input type="password" id="loginInput" placeholder="Passwort"></ion-input>
+  <ion-input type="password" [(ngModel)]="passwortLogin" id="loginInput" placeholder="Passwort"></ion-input>
   </div>
   <ion-button id="loginButton"(click)="login()">Anmelden</ion-button>
   <div id="passwortContainer" >
