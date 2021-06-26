@@ -41,7 +41,7 @@ describe('LoginPage', () => {
     const fixture = TestBed.createComponent(LoginPage);
     let component = fixture.componentInstance;
     component.login().then(result => {
-      db.loggedIn().then (loggedIn => {
+      db.isLoggedIn().then (loggedIn => {
         if(loggedIn){
           expect(result).toBeTrue();
         } else {
