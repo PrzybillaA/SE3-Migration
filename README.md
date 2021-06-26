@@ -10,7 +10,7 @@ Zuerst musst du das Repostory clonen. Dies kannst du mit dem foldenen Befehl mac
 ```
 git clone https://github.com/PrzybillaA/SE3-Migration.git
 ```
-Anschließend kannst du folgende Befehle ausführen:
+Anschließend kannst du folgende Befehle ausführen (Achtung: Du musst dich dafür in einem Projektordner befinden):
 
 ```
 npm install
@@ -20,7 +20,7 @@ und
 ionic serve
 ```
 
-Da die App grundsätzlich für den Gebrauch auf dem Smartphone entwickelt wurde. Aus diesem Grund drücke F12 und ändere die Sicht zu einem Smartphone.
+Die App wurde grundsätzlich für den Gebrauch auf dem Smartphone entwickelt. Drücke F12 um die Sicht zu einem Smartphone zu ändern:
 
 
 ![Smartphone auswählen im Browser](https://i.ibb.co/WD4KwBs/Smartphone-Ausw-hlen.png)
@@ -34,6 +34,7 @@ ionic build
 ## Benutzerguide:
 Wenn du die App das erste Mal gestartet hast und Untersützung bei der Bedienung brauchst dann schau dir diesen Guide hier an.
 
+### Login
 Zuerst muss du dein Passwort festlegen. Dieses musst du dir gut merken, da du es nicht mehr ändern kannst.
 
 ![Passwort festlegen](https://i.ibb.co/3rBjT7m/Whats-App-Image-2021-06-26-at-12-26-25.jpg)
@@ -42,27 +43,29 @@ Wenn du dich dann in Zukunft erneut anmeldest, dann musst du nur noch dein Passw
 
 ![Passwort eingeben](https://i.ibb.co/s1zDVKt/Whats-App-Image-2021-06-26-at-12-30-13.jpg)
 
+### Todo-Board
 Wenn du dein Passwort eingegeben hast, dann landest du auf der Hauptseite der App, dem Todo-Board.
 
-//BILD TODO-BOARD
+![Todo-Board](https://i.ibb.co/8dfX6c4/Todo-Board.png)
 
-Hier kannst du neue Todos erstellen und wenn du diese erledigt hast wieder löschen. Für ein erledigtes Todo bekommst du Punkte, welche du sammeln kannst.
+Hier kannst du neue Todos erstellen. Wenn du ein Todo abgeschlossen hast, kannst du bei dem Todo nach links swipen und es löschen. Für ein erledigtes Todo bekommst du Punkte, welche du sammeln kannst. Ab einer bestimmten Anzahl von Punkten steigst du Level auf.
+Aktuell kannst du leider noch keine neuen Todos anlegen.
 
-
-
+### Navigation
 Über das Burger-Menü links oben kannst du zwischen den verschiedenen Seiten der App navigieren. 
 
-![Todo-Board](https://i.ibb.co/Qj0M87q/Burger-Men.png) 
+![Burger-Menü-Zeichen](https://i.ibb.co/Qj0M87q/Burger-Men.png) 
 
-Zum Beispiel kannst du auf die Hilfe-Seite navigieren, um nocheinmal Informationen von der App und eine Hilfestellung zu bekommen.
+Hier kannst du auf die Hilfe-Seite navigieren und eine Hilfestellung zur App bekommen.
+
 Die Einstellungs-Seite ist aktuell noch in Bearbeitung.
 
-![Todo-Board](https://i.ibb.co/sFsb0gN/Men.png)
+![Bürger-Menü](https://i.ibb.co/sFsb0gN/Men.png)
 
 
 
 
-Wir wünschen dir viel Spaß mit der APP und hoffen, dass sie dir Hilfe deine Todos zu managen.
+Wir wünschen dir viel Spaß mit der APP und hoffen, dass sie dir dabei hilft deine Todos zu managen.
 
 Liebe Grüße
 Dein Tudu-App-Team
