@@ -26,5 +26,25 @@ export class GamifyService {
   getLevel(){
     return this._level;
   }
-  
+  addPoints(value:number){
+
+    this._points += value;
+    if(this.checkForLevelUp()){
+      this.levelUp();
+    }
+    return this._points;
+  }
+  private checkForLevelUp(){
+    return this._points>=this.getTotalLevelPoints();
+  }
+  public getNeededPointsForLevelUp(){
+    return this._levelTable[this._level]-this._points;
+  }
+  private getTotalLevelPoints(){
+    return this._levelTable[this._level];
+  }
+  private levelUp(){
+    this._points -= this.getTotalLevelPoints();
+    this._level++;
+  }
 }

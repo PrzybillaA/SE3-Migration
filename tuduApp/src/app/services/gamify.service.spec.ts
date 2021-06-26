@@ -23,5 +23,17 @@ describe('GamifyService', () => {
     service.setLevel(10);
     expect(service.getLevel()).toEqual(10);
   })
-  
+  it('Method: addPoints',()=>{
+    service.setLevel(1);
+    service.setPoints(1);
+    expect(service.addPoints(2)).toEqual(3);
+  })
+  it('Method: addPoints + internal system logic',()=>{
+    service.setLevel(1);
+    service.setPoints(0);
+    var neededPoints = service.getNeededPointsForLevelUp();
+    expect(service.addPoints(neededPoints+1)).toEqual(1);
+    expect(service.getLevel()).toEqual(2);
+
+  })
 });
