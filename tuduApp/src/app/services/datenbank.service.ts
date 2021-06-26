@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Todo } from './models/todo';
 import { Storage } from '@capacitor/storage';
-import { SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS } from 'constants';
 
 @Injectable({
   providedIn: 'root'
